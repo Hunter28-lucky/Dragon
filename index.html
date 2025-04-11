@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dragon Gym - Saraidhela, Dhanbad | Oldest & Most Trusted Gym</title>
+    <meta name="description" content="Welcome to Red Dragon Gym, Saraidhela Branch - Dhanbad's oldest, most trusted, and award-winning unisex fitness center. Premium facilities, expert trainers, and proven results.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #f3f4f6; /* Light text */
+        }
+        /* Define custom colors for easier use - adjust hex codes as needed */
+        .bg-brand-red { background-color: #C00000; }
+        .text-brand-red { color: #C00000; }
+        .border-brand-red { border-color: #C00000; }
+        .bg-brand-gold { background-color: #B8860B; } /* Darker Gold */
+        .text-brand-gold { color: #B8860B; }
+        .border-brand-gold { border-color: #B8860B; }
+        .bg-brand-dark { background-color: #1F2937; } /* Slightly lighter dark for contrast */
+        .text-brand-dark { color: #1F2937; }
+
+        /* Custom Font Families */
+        .font-heading { font-family: 'Oswald', sans-serif; }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Simple Navigation underline effect */
+        nav a {
+            position: relative;
+            text-decoration: none;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #B8860B; /* Gold underline */
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+            background: #B8860B;
+        }
+        nav a.active::after { /* Style for active link */
+             width: 100%;
+            left: 0;
+            background: #C00000; /* Red underline for active */
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <header class="bg-black sticky top-0 z-50 shadow-lg" data-aos="fade-down">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold text-brand-red flex items-center">
+                <i class="fas fa-dragon mr-2 text-brand-red"></i>
+                RED DRAGON GYM
+            </a>
+
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="text-gray-300 hover:text-brand-gold transition duration-300 active">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-brand-gold transition duration-300">About</a>
+                <a href="#trainers" class="text-gray-300 hover:text-brand-gold transition duration-300">Trainers</a>
+                <a href="#facilities" class="text-gray-300 hover:text-brand-gold transition duration-300">Facilities</a>
+                <a href="#services" class="text-gray-300 hover:text-brand-gold transition duration-300">Services</a>
+                <a href="#membership" class="text-gray-300 hover:text-brand-gold transition duration-300">Membership</a>
+                <a href="#gallery" class="text-gray-300 hover:text-brand-gold transition duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-300 hover:text-brand-gold transition duration-300">Contact</a>
+                <a href="#contact" class="bg-brand-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Join Now</a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden bg-black absolute top-full left-0 w-full transform -translate-y-full -z-10">
+             <a href="#home" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Home</a>
+             <a href="#about" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">About</a>
+             <a href="#trainers" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Trainers</a>
+             <a href="#facilities" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Facilities</a>
+             <a href="#services" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Services</a>
+             <a href="#membership" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Membership</a>
+             <a href="#gallery" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Gallery</a>
+             <a href="#contact" class="block px-6 py-3 text-gray-300 hover:bg-brand-dark hover:text-brand-gold transition duration-300">Contact</a>
+             <a href="#contact" class="block bg-brand-red text-center text-white font-bold py-3 px-6 rounded-lg m-4 hover:bg-red-700 transition duration-300">Join Now</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://placehold.co/1920x1080/111827/444444?text=Premium+Gym+Interior');">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="relative z-10 px-6" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-4">
+                    <span class="text-brand-red">Red Dragon Gym</span>: Dhanbad's Premier Fitness Legacy
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    <span class="font-semibold text-brand-gold">Dhanbad's Oldest & Most Awarded Gym</span> | Trusted by Thousands | Unisex Fitness Center
+                </p>
+                <a href="#membership" class="bg-brand-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">
+                    Start Your Journey
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-brand-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-brand-red" data-aos="fade-up">Forged in Dhanbad: The Red Dragon Legacy</h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Established as Dhanbad's pioneering fitness center, Red Dragon Gym in Saraidhela is more than just a gym – it's a community built on strength, dedication, and trust. For years, we've been the city's leading unisex destination for achieving health and fitness goals in a premium, supportive environment.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div data-aos="fade-right" data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/333333/cccccc?text=Gym+Founder+or+Historic+Photo" alt="Red Dragon Gym History" class="rounded-lg shadow-lg mx-auto">
+                    </div>
+                    <div class="text-left" data-aos="fade-left" data-aos-delay="300">
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-gold">Our Philosophy</h3>
+                        <p class="text-gray-400 mb-4">We believe in a holistic approach to fitness, combining state-of-the-art equipment, expert guidance from certified trainers and dietitians, and a motivating atmosphere where everyone feels welcome.</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-gold">Community & Trust</h3>
+                        <p class="text-gray-400">Being Dhanbad's oldest gym comes with a responsibility. We've earned the trust of thousands by consistently delivering results and fostering a strong sense of community among our members.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trainers" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-brand-red" data-aos="fade-up">Your Partners in Peak Performance: Our Expert Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-brand-dark p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/300x300/555555/eeeeee?text=Trainer+1" alt="Certified Trainer 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-gold">
+                        <h3 class="text-xl font-semibold mb-1 text-white">Trainer Name 1</h3>
+                        <p class="text-brand-gold font-semibold mb-2">Head Coach</p>
+                        <p class="text-gray-400 text-sm mb-3">ACE Certified, Specializes in Strength & Conditioning.</p>
+                        <p class="text-gray-400 text-sm">"Push your limits, discover your strength. I'm here to guide you every step."</p>
+                    </div>
+                    <div class="bg-brand-dark p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://placehold.co/300x300/555555/eeeeee?text=Trainer+2" alt="Certified Trainer 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-gold">
+                        <h3 class="text-xl font-semibold mb-1 text-white">Trainer Name 2</h3>
+                        <p class="text-brand-gold font-semibold mb-2">Senior Trainer</p>
+                        <p class="text-gray-400 text-sm mb-3">ISSA Certified, Expert in Weight Management & Functional Fitness.</p>
+                        <p class="text-gray-400 text-sm">"Fitness is a journey, not a destination. Let's make yours enjoyable and effective."</p>
+                    </div>
+                    <div class="bg-brand-dark p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                         <img src="https://placehold.co/300x300/555555/eeeeee?text=Dietitian" alt="Expert Dietitian" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-gold">
+                         <h3 class="text-xl font-semibold mb-1 text-white">Nutritionist Name</h3>
+                         <p class="text-brand-gold font-semibold mb-2">Expert Dietitian</p>
+                         <p class="text-gray-400 text-sm mb-3">Registered Dietitian, Specializes in Sports Nutrition & Meal Planning.</p>
+                         <p class="text-gray-400 text-sm">"Fuel your body right. Achieve optimal results with personalized nutrition guidance."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="py-16 md:py-24 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-red" data-aos="fade-up">Train Without Limits: Our Premium Fitness Environment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/600x400/444444/cccccc?text=Cardio+Zone" alt="Cardio Zone" class="w-full h-48 object-cover">
+                        <div class="p-6 bg-gray-800">
+                            <h3 class="text-xl font-semibold mb-2 text-brand-gold">Extensive Cardio Zone</h3>
+                            <p class="text-gray-400">State-of-the-art treadmills, ellipticals, cycles, and rowers to get your heart pumping.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/444444/cccccc?text=Strength+Zone" alt="Strength Zone" class="w-full h-48 object-cover">
+                        <div class="p-6 bg-gray-800">
+                            <h3 class="text-xl font-semibold mb-2 text-brand-gold">Fully Equipped Strength Area</h3>
+                            <p class="text-gray-400">Wide range of free weights, resistance machines, benches, and racks for all levels.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://placehold.co/600x400/444444/cccccc?text=Functional+Training+Area" alt="Functional Training Area" class="w-full h-48 object-cover">
+                        <div class="p-6 bg-gray-800">
+                            <h3 class="text-xl font-semibold mb-2 text-brand-gold">Functional & Group Space</h3>
+                            <p class="text-gray-400">Dedicated areas for functional training, stretching, and potential group classes.</p>
+                        </div>
+                    </div>
+                </div>
+                 <p class="text-center text-gray-400 mt-12" data-aos="fade-up" data-aos-delay="400">Our unisex facility is meticulously maintained, fully air-conditioned, and designed to motivate.</p>
+            </div>
+        </section>
+
+        <section id="services" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-red" data-aos="fade-up">Tailored Programs for Every Ambition</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-user-shield text-4xl text-brand-gold mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Personal Training</h3>
+                        <p class="text-gray-400">Get dedicated one-on-one coaching tailored to your specific goals, ensuring faster, safer results.</p>
+                    </div>
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg border-2 border-brand-red" data-aos="fade-up" data-aos-delay="200"> <i class="fas fa-running text-4xl text-brand-gold mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Sports Conditioning</h3>
+                        <p class="text-gray-400">Athlete-focused training to enhance strength, speed, agility, and endurance for peak performance in your sport.</p>
+                    </div>
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-apple-alt text-4xl text-brand-gold mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Nutritional Guidance</h3>
+                        <p class="text-gray-400">Expert advice and personalized meal plans from our certified dietitians to complement your training.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="awards" class="py-16 md:py-24 bg-brand-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-brand-red" data-aos="fade-up">Acknowledged Leaders in Fitness</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">Proudly recognized for our commitment to fitness excellence and community service in Dhanbad.</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://placehold.co/150x150/B8860B/ffffff?text=Award+Badge+1" alt="Award 1" class="h-24 w-24 mx-auto mb-2 rounded-full bg-brand-gold p-1">
+                        <p class="font-semibold text-white">Best Gym Award [Year]</p>
+                        <p class="text-sm text-gray-400">[Awarding Body]</p>
+                    </div>
+                     <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                         <img src="https://placehold.co/150x150/B8860B/ffffff?text=Community+Choice" alt="Award 2" class="h-24 w-24 mx-auto mb-2 rounded-full bg-brand-gold p-1">
+                         <p class="font-semibold text-white">Community Choice [Year]</p>
+                         <p class="text-sm text-gray-400">[Local Publication/Vote]</p>
+                    </div>
+                     <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                         <i class="fas fa-trophy text-6xl text-brand-gold mb-2"></i>
+                         <p class="font-semibold text-white">Serving Dhanbad Since [Year]</p>
+                         <p class="text-sm text-gray-400">Decades of Fitness Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="membership" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-brand-red" data-aos="fade-up">Invest in Your Strength: Choose Your Path</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Monthly Flex</h3>
+                        <p class="text-4xl font-bold mb-4 text-brand-gold">₹X,XXX<span class="text-lg text-gray-400">/month</span></p>
+                        <ul class="text-gray-400 space-y-2 mb-6 text-left pl-4 list-disc">
+                            <li>Full Gym Access</li>
+                            <li>Cardio & Strength Zones</li>
+                            <li>Locker Facility</li>
+                            <li>Flexible Commitment</li>
+                        </ul>
+                        <a href="#contact" class="block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Enquire Now</a>
+                    </div>
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg border-2 border-brand-red transform scale-105" data-aos="fade-up" data-aos-delay="200"> <span class="inline-block bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full mb-4 -mt-10">POPULAR</span>
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Quarterly Power</h3>
+                        <p class="text-4xl font-bold mb-4 text-brand-gold">₹Y,YYY<span class="text-lg text-gray-400">/quarter</span></p>
+                        <ul class="text-gray-400 space-y-2 mb-6 text-left pl-4 list-disc">
+                            <li>Full Gym Access</li>
+                            <li>Cardio & Strength Zones</li>
+                            <li>Locker Facility</li>
+                            <li>Basic Fitness Assessment</li>
+                            <li>Savings Compared to Monthly</li>
+                        </ul>
+                        <a href="#contact" class="block bg-brand-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Sign Up</a>
+                    </div>
+                    <div class="bg-brand-dark p-8 rounded-lg shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Annual Warrior</h3>
+                        <p class="text-4xl font-bold mb-4 text-brand-gold">₹Z,ZZZ<span class="text-lg text-gray-400">/year</span></p>
+                        <ul class="text-gray-400 space-y-2 mb-6 text-left pl-4 list-disc">
+                            <li>Full Gym Access</li>
+                            <li>Cardio & Strength Zones</li>
+                            <li>Locker Facility</li>
+                            <li>Full Fitness Assessment</li>
+                            <li>Best Value Offer</li>
+                        </ul>
+                        <a href="#contact" class="block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Enquire Now</a>
+                    </div>
+                </div>
+                <p class="mt-8 text-gray-400" data-aos="fade-up" data-aos-delay="400">Special plans available for students and corporate groups. Visit us for details!</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 md:py-24 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-red" data-aos="fade-up">From Our Members: Stories of Transformation & Trust</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <p class="text-gray-400 italic mb-4">"Red Dragon isn't just a gym, it's family. The trainers are knowledgeable and motivating. I've seen amazing results since joining. Truly the best gym in Dhanbad!"</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/777777/eeeeee?text=M1" alt="Member 1" class="w-12 h-12 rounded-full mr-4 border-2 border-brand-gold">
+                            <div>
+                                <p class="font-semibold text-white">Member Name 1</p>
+                                <p class="text-sm text-brand-gold">Lost 15 Kgs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <p class="text-gray-400 italic mb-4">"As Dhanbad's oldest gym, they know what they're doing. The equipment is top-notch, the space is clean, and the atmosphere is perfect for focusing on your workout."</p>
+                        <div class="flex items-center">
+                             <img src="https://placehold.co/50x50/777777/eeeeee?text=M2" alt="Member 2" class="w-12 h-12 rounded-full mr-4 border-2 border-brand-gold">
+                            <div>
+                                <p class="font-semibold text-white">Member Name 2</p>
+                                <p class="text-sm text-brand-gold">Gained Strength</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-gray-400 italic mb-4">"The sports conditioning program here is fantastic. It helped me improve my stamina and agility for cricket. Highly recommend for local athletes."</p>
+                        <div class="flex items-center">
+                             <img src="https://placehold.co/50x50/777777/eeeeee?text=M3" alt="Member 3" class="w-12 h-12 rounded-full mr-4 border-2 border-brand-gold">
+                            <div>
+                                <p class="font-semibold text-white">Member Name 3</p>
+                                <p class="text-sm text-brand-gold">Improved Performance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-red" data-aos="fade-up">Inside the Dragon's Den: Explore Red Dragon Gym</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Gym+Interior+1" alt="Gym Interior 1" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="150">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Equipment+Close-up" alt="Equipment Close-up" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Workout+Session" alt="Workout Session" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="250">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Strength+Area" alt="Strength Area" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                     <div data-aos="zoom-in" data-aos-delay="300">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Cardio+Machines" alt="Cardio Machines" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                     <div data-aos="zoom-in" data-aos-delay="350">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Member+Moment" alt="Member Moment" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                     <div data-aos="zoom-in" data-aos-delay="400">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Gym+Event" alt="Gym Event" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                     <div data-aos="zoom-in" data-aos-delay="450">
+                        <img src="https://placehold.co/400x300/333333/cccccc?text=Reception+Area" alt="Reception Area" class="rounded-lg shadow-lg w-full h-full object-cover cursor-pointer hover:opacity-80 transition duration-300">
+                    </div>
+                </div>
+                 </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-red" data-aos="fade-up">Connect with Red Dragon Gym - Saraidhela</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-semibold mb-4 text-brand-gold">Visit Us or Get in Touch</h3>
+                        <div class="space-y-4 text-gray-300 mb-6">
+                            <p><i class="fas fa-map-marker-alt w-6 text-brand-red"></i> <span class="font-semibold">Address:</span> Near Pragati Nursing Home, Saraidhela, Dhanbad, Jharkhand [PIN Code]</p>
+                            <p><i class="fas fa-phone w-6 text-brand-red"></i> <span class="font-semibold">Phone:</span> <a href="tel:+91XXXXXXXXXX" class="hover:text-brand-gold">+91-XXX-XXX-XXXX</a> (Replace with actual number)</p>
+                            <p><i class="fas fa-envelope w-6 text-brand-red"></i> <span class="font-semibold">Email:</span> <a href="mailto:info@reddragongym.com" class="hover:text-brand-gold">info@reddragongym.com</a> (Replace with actual email)</p>
+                            <p><i class="fas fa-clock w-6 text-brand-red"></i> <span class="font-semibold">Hours:</span> Mon - Sat: 6 AM - 10 PM, Sun: 8 AM - 12 PM (Verify hours)</p>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                             <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.070407687561!2d86.4610167149777!3d23.81638818450168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bc97aaaaaaab%3A0x9f1d7f6d3e7b7e9d!2sRed%20Dragon%20Gym!5e0!3m2!1sen!2sin!4v1678886011123!5m2!1sen!2sin"
+                                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" title="Red Dragon Gym Location"></iframe>
+                                </div>
+                    </div>
+
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-semibold mb-4 text-brand-gold">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300">Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300">Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-brand-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                    Send Inquiry
+                                </button>
+                            </div>
+                             <p id="form-status" class="text-center text-sm mt-4"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <div class="mb-4">
+                <a href="#" class="text-gray-400 hover:text-brand-gold mx-2 text-xl transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-gold mx-2 text-xl transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-gold mx-2 text-xl transition duration-300"><i class="fab fa-youtube"></i></a>
+                </div>
+            <p class="text-sm">&copy; <span id="current-year"></span> Red Dragon Gym - Saraidhela Branch, Dhanbad. All Rights Reserved.</p>
+            <p class="text-xs mt-2">Designed with <i class="fas fa-heart text-brand-red"></i> | <a href="#privacy-policy" class="hover:text-brand-gold">Privacy Policy</a> | <a href="#terms" class="hover:text-brand-gold">Terms of Service</a></p>
+             </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 800, // Animation duration
+            once: true, // Whether animation should happen only once - while scrolling down
+        });
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a'); // Get all links in mobile menu
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('transform');
+            mobileMenu.classList.toggle('-translate-y-full');
+            mobileMenu.classList.toggle('translate-y-0'); // Animate into view
+            mobileMenu.classList.toggle('-z-10'); // Bring menu to front/back
+            mobileMenu.classList.toggle('z-40');
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('transform');
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+                mobileMenu.classList.add('-z-10');
+                mobileMenu.classList.remove('z-40');
+            });
+        });
+
+        // Update Footer Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple Contact Form Handler (Placeholder)
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent actual submission for this example
+            formStatus.textContent = 'Sending...';
+            formStatus.classList.remove('text-red-500');
+            formStatus.classList.add('text-brand-gold');
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Replace with actual form submission logic (e.g., using Fetch API to send data to a server)
+                formStatus.textContent = 'Thank you for your inquiry! We will get back to you soon.';
+                formStatus.classList.remove('text-brand-gold');
+                formStatus.classList.add('text-green-500');
+                contactForm.reset(); // Clear the form
+            }, 1500);
+
+            // Example of what real submission might look like (needs backend endpoint)
+            /*
+            const formData = new FormData(contactForm);
+            fetch('/api/contact', { // Replace with your backend endpoint
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                formStatus.textContent = 'Message sent successfully!';
+                formStatus.classList.add('text-green-500');
+                contactForm.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formStatus.textContent = 'An error occurred. Please try again.';
+                formStatus.classList.add('text-red-500');
+            });
+            */
+        });
+
+        // Active Navigation Link Highlighting on Scroll (Basic)
+        const sections = document.querySelectorAll('main section[id]');
+        const navDesktopLinks = document.querySelectorAll('header nav .hidden a[href^="#"]');
+        const navMobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+
+        const activateLink = (links, sectionId) => {
+            links.forEach(link => {
+                link.classList.remove('active', 'text-brand-gold'); // Remove active styles from all
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active', 'text-brand-gold'); // Add active styles to the matching link
+                    link.classList.remove('text-gray-300');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Activate when section is halfway visible
+                if (pageYOffset >= sectionTop - sectionHeight / 2) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            if (current) {
+                activateLink(navDesktopLinks, current);
+                activateLink(navMobileLinks, current);
+            } else { // Handle top of page case
+                 activateLink(navDesktopLinks, 'home');
+                 activateLink(navMobileLinks, 'home');
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>
