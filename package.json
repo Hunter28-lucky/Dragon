@@ -1,0 +1,22 @@
+{
+  "name": "red-dragon-gym",
+  "version": "1.0.0",
+  "description": "Red Dragon Gym - Modern Fitness Website with Google Sheets CMS",
+  "scripts": {
+    "start": "echo 'Static site - open index.html in browser'",
+    "dev": "echo 'Static site - open index.html in browser'"
+  },
+  "keywords": [
+    "gym",
+    "fitness",
+    "website",
+    "google-sheets",
+    "static-site"
+  ],
+  "author": "Red Dragon Gym - Saraidhela, Dhanbad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hunter28-lucky/Dragon.git"
+  }
+}
