@@ -1,20 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*).html",
       "headers": [
         {
           "key": "Cache-Control",
@@ -32,7 +21,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.css",
+      "source": "/(.*).css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -41,7 +30,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.js",
+      "source": "/(.*).js",
       "headers": [
         {
           "key": "Cache-Control",
