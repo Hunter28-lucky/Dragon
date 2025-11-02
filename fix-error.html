@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Connection Error - Step by Step</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+            color: #fff;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.8);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+        h1 {
+            color: #fbbf24;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .error-box {
+            background: #dc2626;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 2rem 0;
+            border: 3px solid #fbbf24;
+        }
+        .error-box h2 {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+        .fix-step {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            border-left: 5px solid #10b981;
+        }
+        .step-number {
+            display: inline-block;
+            background: #10b981;
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .fix-step h3 {
+            color: #10b981;
+            display: inline;
+            font-size: 1.5rem;
+        }
+        .fix-step-content {
+            margin-top: 1rem;
+            margin-left: 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .warning {
+            background: rgba(234, 179, 8, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #fbbf24;
+            margin: 1rem 0;
+        }
+        .critical {
+            background: #dc2626;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border: 3px solid #fbbf24;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        code {
+            background: #000;
+            color: #00ff00;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #10b981;
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0.5rem;
+            font-size: 1.1rem;
+        }
+        .btn:hover { opacity: 0.9; }
+        ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+        li {
+            margin: 0.5rem 0;
+            font-size: 1.05rem;
+        }
+        .success-box {
+            background: #10b981;
+            color: #000;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .screenshot {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border: 2px solid #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Fix Connection Error</h1>
+
+        <div class="error-box">
+            <h2>❌ The Problem:</h2>
+            <p>Your test page shows: <strong>"Connection failed! Load failed"</strong></p>
+            <p style="margin-top: 0.5rem;">This means the website can't access your Google Sheet.</p>
+        </div>
+
+        <div class="critical">
+            ⚠️ THE #1 REASON THIS FAILS ⚠️<br>
+            Deployment access NOT set to "Anyone"
+        </div>
+
+        <div class="fix-step">
+            <span class="step-number">1</span>
+            <h3>Update Apps Script Code</h3>
+            <div class="fix-step-content">
+                <p><strong>In your Google Sheet:</strong></p>
+                <ol>
+                    <li>Click: <code>Extensions → Apps Script</code></li>
+                    <li><strong>Select ALL existing code</strong> (Ctrl+A)</li>
+                    <li><strong>Delete it</strong></li>
+                    <li>Go to VS Code → Open: <code>GOOGLE-SHEETS-SCRIPT.js</code></li>
+                    <li><strong>Copy ENTIRE file</strong> (Ctrl+A, Ctrl+C)</li>
+                    <li><strong>Paste</strong> into Apps Script editor</li>
+                    <li>Click <strong>💾 Save</strong></li>
+                </ol>
+                
+                <div class="warning">
+                    <strong>✅ Verify:</strong> The code should start with:<br>
+                    <code>function onOpen() {</code><br>
+                    And include:<br>
+                    <code>function doGet(e) {</code> ← This is ESSENTIAL!
+                </div>
+            </div>
+        </div>
+
+        <div class="fix-step">
+            <span class="step-number">2</span>
+            <h3>Deploy as Web App (MOST IMPORTANT!)</h3>
+            <div class="fix-step-content">
+                <p><strong>In Apps Script editor:</strong></p>
+                
+                <div class="screenshot">
+                    Click: <strong>Deploy</strong> → <strong>New deployment</strong>
+                </div>
+                
+                <ol>
+                    <li>Click ⚙️ icon next to "Select type"</li>
+                    <li>Select: <strong>Web app</strong></li>
+                    <li>Description: <code>Red Dragon Gym API</code></li>
+                    <li><strong>Execute as:</strong> Me (your email)</li>
+                </ol>
+                
+                <div class="critical">
+                    ⭐ CRITICAL STEP ⭐<br>
+                    <strong>Who has access:</strong> <code>Anyone</code><br>
+                    (NOT "Anyone with the link")<br>
+                    (NOT "Only myself")<br>
+                    MUST BE: <code>Anyone</code>
+                </div>
+                
+                <ol start="5">
+                    <li>Click <strong>Deploy</strong></li>
+                    <li>Click <strong>Authorize access</strong></li>
+                    <li>Choose your Google account</li>
+                    <li>Click <strong>Advanced</strong></li>
+                    <li>Click <strong>Go to Red Dragon Gym (unsafe)</strong></li>
+                    <li>Click <strong>Allow</strong></li>
+                </ol>
+                
+                <div class="warning">
+                    <strong>✅ Verify:</strong> You should get a Web App URL<br>
+                    It should match your deployment URL
+                </div>
+            </div>
+        </div>
+
+        <div class="fix-step">
+            <span class="step-number">3</span>
+            <h3>Set Up Sheet Tabs</h3>
+            <div class="fix-step-content">
+                <p><strong>Back in your Google Sheet:</strong></p>
+                <ol>
+                    <li><strong>Refresh the page</strong> (F5 or Cmd+R)</li>
+                    <li>Wait 10 seconds for menu to load</li>
+                    <li>Click: <code>🔥 Website Tools</code></li>
+                    <li>Click: <code>📋 Create All Tabs</code></li>
+                    <li>Click OK when done</li>
+                    <li>Click: <code>🔥 Website Tools → 🔄 Refresh Sample Data</code></li>
+                    <li>Click Yes to add sample data</li>
+                </ol>
+                
+                <div class="success-box">
+                    ✅ You should now have 11 tabs with data!
+                </div>
+            </div>
+        </div>
+
+        <div class="fix-step">
+            <span class="step-number">4</span>
+            <h3>Test the Connection</h3>
+            <div class="fix-step-content">
+                <p>Go back to your test page and click:</p>
+                <div class="screenshot">
+                    🔄 Test Again
+                </div>
+                <p>You should see:</p>
+                <div class="success-box">
+                    ✅ Connection successful! Google Sheets is working.
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(59, 130, 246, 0.2); padding: 2rem; border-radius: 0.75rem; margin: 2rem 0;">
+            <h2 style="color: #60a5fa; margin-bottom: 1rem;">📋 Quick Troubleshooting</h2>
+            
+            <p><strong>Still getting error?</strong></p>
+            <ul>
+                <li>Make sure deployment access = <strong>"Anyone"</strong></li>
+                <li>Make sure you clicked <strong>"Allow"</strong> when authorizing</li>
+                <li>Check that <code>doGet()</code> function exists in your script</li>
+                <li>Try creating a <strong>NEW deployment</strong> (not editing old one)</li>
+                <li>Wait 1-2 minutes after deploying, then test again</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit" target="_blank" class="btn">
+                Open Google Sheet
+            </a>
+            <a href="test-connection.html" class="btn" style="background: #dc2626; color: white;">
+                Test Connection
+            </a>
+        </div>
+
+        <div style="text-align: center; color: #94a3b8; margin-top: 2rem;">
+            <p><strong>Remember:</strong> The deployment must be set to "Anyone" access!</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">Red Dragon Gym - Google Sheets Integration</p>
+        </div>
+    </div>
+</body>
+</html>

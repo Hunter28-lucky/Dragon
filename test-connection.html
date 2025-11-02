@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Google Sheets Connection</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { color: #fbbf24; margin-bottom: 1rem; }
+        .status {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+        .loading { background: #3b82f6; color: white; }
+        .success { background: #10b981; color: white; }
+        .error { background: #ef4444; color: white; }
+        .data-section {
+            margin: 2rem 0;
+            background: #0f172a;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .data-section h3 {
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+        pre {
+            background: #000;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        button {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+        button:hover { opacity: 0.9; }
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #3b82f6;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Google Sheets Connection Test</h1>
+        
+        <div class="info">
+            <strong>Web App URL:</strong><br>
+            <code id="webAppUrl"></code>
+        </div>
+
+        <div id="status" class="status loading">
+            ⏳ Testing connection...
+        </div>
+
+        <button onclick="testConnection()">🔄 Test Again</button>
+        <button onclick="testAllSheets()">📊 Load All Data</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        document.getElementById('webAppUrl').textContent = CONFIG.WEB_APP_URL;
+
+        async function testConnection() {
+            const statusEl = document.getElementById('status');
+            const resultsEl = document.getElementById('results');
+            
+            statusEl.className = 'status loading';
+            statusEl.textContent = '⏳ Testing connection to Google Sheets...';
+            resultsEl.innerHTML = '';
+
+            try {
+                // Test Hero sheet
+                const url = `${CONFIG.WEB_APP_URL}?sheet=Hero`;
+                console.log('Testing URL:', url);
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.success) {
+                    statusEl.className = 'status success';
+                    statusEl.textContent = '✅ Connection successful! Google Sheets is working.';
+                    
+                    resultsEl.innerHTML = `
+                        <div class="data-section">
+                            <h3>📄 Hero Sheet Data</h3>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `
+                    ❌ Connection failed!<br>
+                    <small>${error.message}</small><br><br>
+                    <strong>Troubleshooting:</strong><br>
+                    1. Make sure you deployed as Web App<br>
+                    2. Set access to "Anyone" in deployment<br>
+                    3. Check if sheet "Hero" exists<br>
+                    4. Make sure sheet has data
+                `;
+                console.error('Error:', error);
+            }
+        }
+
+        async function testAllSheets() {
+            const resultsEl = document.getElementById('results');
+            resultsEl.innerHTML = '<div class="status loading">⏳ Loading all sheets...</div>';
+
+            const sheets = ['Hero', 'Stats', 'About', 'Trainers', 'Facilities', 'Services', 'Pricing', 'Testimonials', 'Gallery', 'Contact', 'Footer'];
+            const results = {};
+
+            for (const sheet of sheets) {
+                try {
+                    const url = `${CONFIG.WEB_APP_URL}?sheet=${sheet}`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    results[sheet] = data.success ? `✅ ${data.data.length} rows` : '❌ Error';
+                } catch (error) {
+                    results[sheet] = '❌ Failed';
+                }
+            }
+
+            let html = '<div class="data-section"><h3>📊 All Sheets Status</h3><pre>';
+            for (const [sheet, status] of Object.entries(results)) {
+                html += `${sheet.padEnd(15)} : ${status}\n`;
+            }
+            html += '</pre></div>';
+
+            resultsEl.innerHTML = html;
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            setTimeout(testConnection, 500);
+        });
+    </script>
+</body>
+</html>

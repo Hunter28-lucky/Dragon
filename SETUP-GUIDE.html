@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dragon Gym - Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #000 0%, #DC2626 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #DC2626;
+            border-bottom: 2px solid #DC2626;
+            padding-bottom: 0.5rem;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .step {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .step::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #DC2626;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem 0;
+        }
+        .btn:hover {
+            background: #B91C1C;
+        }
+        .info-box {
+            background: #FEF2F2;
+            border-left: 4px solid #DC2626;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🐉 Red Dragon Gym</h1>
+        <p>Website Setup & Customization Guide</p>
+    </div>
+
+    <div class="section">
+        <h2>✨ Welcome!</h2>
+        <p>Your website has been completely redesigned with a modern, professional look. Here's everything you need to know to get started.</p>
+    </div>
+
+    <div class="section">
+        <h2>📋 What's Included</h2>
+        <div class="step"><strong>index.html</strong> - Main website file</div>
+        <div class="step"><strong>styles.css</strong> - All styling and design</div>
+        <div class="step"><strong>script.js</strong> - Interactive functionality</div>
+        <div class="step"><strong>README.md</strong> - Complete documentation</div>
+    </div>
+
+    <div class="section">
+        <h2>🚀 Quick Start</h2>
+        <div class="step">Open <code>index.html</code> in any web browser</div>
+        <div class="step">Website is ready to use immediately!</div>
+        <div class="step">Customize content as needed (see below)</div>
+        <div class="step">Upload to your web hosting when ready</div>
+    </div>
+
+    <div class="section">
+        <h2>✏️ Easy Customization</h2>
+        
+        <h3>1. Update Contact Information</h3>
+        <p>Open <code>index.html</code> and find the Contact section (near the bottom). Update:</p>
+        <div class="step">Phone number: Currently <code>+91 98765 43210</code></div>
+        <div class="step">Email: Currently <code>info@reddragongym.com</code></div>
+        <div class="step">Address details</div>
+        <div class="step">Operating hours</div>
+
+        <h3>2. Update Membership Prices</h3>
+        <p>Find the Membership section and update the pricing:</p>
+        <div class="step">Monthly: Currently ₹2,999</div>
+        <div class="step">Quarterly: Currently ₹7,999</div>
+        <div class="step">Annual: Currently ₹24,999</div>
+
+        <h3>3. Change Images</h3>
+        <p>Replace Unsplash URLs with your own gym photos:</p>
+        <div class="step">Save your images in the same folder</div>
+        <div class="step">Replace <code>src="https://images.unsplash.com/..."</code></div>
+        <div class="step">With <code>src="your-image.jpg"</code></div>
+
+        <h3>4. Update Trainer Information</h3>
+        <p>In the Trainers section, update:</p>
+        <div class="step">Trainer names</div>
+        <div class="step">Titles and certifications</div>
+        <div class="step">Profile photos</div>
+
+        <h3>5. Modify Statistics</h3>
+        <p>Update the numbers in the Stats section:</p>
+        <div class="step">Active members</div>
+        <div class="step">Years of experience</div>
+        <div class="step">Number of trainers</div>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Color Customization</h2>
+        <p>Want different colors? Open <code>styles.css</code> and change the variables at the top:</p>
+        <div class="info-box">
+            <code>--color-black: #000000;</code> (Main background)<br>
+            <code>--color-red: #DC2626;</code> (Accent color)<br>
+            Change these to any color you like!
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📱 Mobile Testing</h2>
+        <div class="step">Open website on your phone</div>
+        <div class="step">Test the hamburger menu</div>
+        <div class="step">Check all buttons work properly</div>
+        <div class="step">Verify images load correctly</div>
+    </div>
+
+    <div class="section">
+        <h2>🌐 Publishing Your Website</h2>
+        <h3>Option 1: Simple Hosting</h3>
+        <div class="step">Sign up for hosting (e.g., Hostinger, Bluehost, GoDaddy)</div>
+        <div class="step">Upload all files via FTP or file manager</div>
+        <div class="step">Point your domain to the hosting</div>
+        <div class="step">Done!</div>
+
+        <h3>Option 2: Free Hosting</h3>
+        <div class="step">GitHub Pages - Free and reliable</div>
+        <div class="step">Netlify - Free with custom domain</div>
+        <div class="step">Vercel - Free for personal projects</div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Need Help?</h2>
+        <div class="info-box">
+            <strong>Common Issues:</strong><br><br>
+            
+            <strong>Q: Menu doesn't work on mobile?</strong><br>
+            A: Make sure <code>script.js</code> is in the same folder as index.html<br><br>
+            
+            <strong>Q: Styling looks broken?</strong><br>
+            A: Check that <code>styles.css</code> is in the same folder<br><br>
+            
+            <strong>Q: Forms don't send emails?</strong><br>
+            A: You'll need to add a backend service or form handler like Formspree<br><br>
+            
+            <strong>Q: Want to add more sections?</strong><br>
+            A: Copy an existing section and modify the content
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Final Checklist</h2>
+        <div class="step">Update all contact information</div>
+        <div class="step">Replace example images with your gym photos</div>
+        <div class="step">Update pricing information</div>
+        <div class="step">Update trainer profiles</div>
+        <div class="step">Test on desktop and mobile</div>
+        <div class="step">Update social media links in footer</div>
+        <div class="step">Test contact form</div>
+        <div class="step">Verify Google Maps location</div>
+        <div class="step">Check all navigation links work</div>
+        <div class="step">Upload to web hosting</div>
+    </div>
+
+    <div class="section" style="text-align: center; background: linear-gradient(135deg, #000 0%, #DC2626 100%); color: white;">
+        <h2 style="color: white; border-bottom: 2px solid white;">🎉 You're All Set!</h2>
+        <p>Your professional gym website is ready to attract new members!</p>
+        <a href="index.html" class="btn" style="background: white; color: #DC2626;">View Your Website</a>
+    </div>
+
+    <div class="section">
+        <p style="text-align: center; color: #999; font-size: 0.9rem;">
+            Made with ❤️ for Red Dragon Gym<br>
+            © 2025 All Rights Reserved
+        </p>
+    </div>
+</body>
+</html>

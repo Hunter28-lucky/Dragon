@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Template Structure - Red Dragon Gym</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #f59e0b; margin-bottom: 1rem; font-size: 2.5rem; }
+        h2 { color: #10b981; margin: 2rem 0 1rem; font-size: 1.8rem; }
+        h3 { color: #60a5fa; margin: 1.5rem 0 0.75rem; }
+        .alert {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #fbbf24;
+        }
+        .alert h3 { margin-top: 0; color: #fbbf24; }
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            background: #1e293b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #334155;
+        }
+        th {
+            background: #0f172a;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        td { background: #1e293b; }
+        code {
+            background: #334155;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            color: #fbbf24;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-secondary {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+        ul { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin: 0.5rem 0; }
+        .note {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Red Dragon Gym - Google Sheets Template</h1>
+        
+        <div class="alert">
+            <h3>⚡ Quick Start</h3>
+            <p><strong>Your Google Sheet URL:</strong><br>
+            <code>https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit</code></p>
+            <p style="margin-top: 1rem;">Create these tabs (sheets) in your Google Sheet and follow the structure below:</p>
+        </div>
+
+        <div class="info">
+            <p><strong>📝 Instructions:</strong></p>
+            <ol style="margin-left: 2rem;">
+                <li>Create a new tab in your Google Sheet for each section below</li>
+                <li>Name the tab exactly as shown (case-sensitive)</li>
+                <li>Copy the column headers into the first row</li>
+                <li>Fill in your content in the rows below</li>
+            </ol>
+        </div>
+
+        <h2>1️⃣ Hero Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Hero</code><br>
+            <strong>Purpose:</strong> Main banner section with title, subtitle, and background image
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>subtitle</th>
+                        <th>backgroundImage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Unleash Your Inner|Dragon</td>
+                        <td>Transform your body, mind, and spirit at Dhanbad's premier fitness destination</td>
+                        <td>https://images.unsplash.com/photo-1534438327276-14e5300c3a48</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Note:</strong> Use <code>|</code> (pipe) in title to split text. Second part gets gold highlight.</p>
+
+        <h2>2️⃣ Stats Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Stats</code><br>
+            <strong>Purpose:</strong> Display key statistics (years, members, trainers, etc.)
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>number</th>
+                        <th>suffix</th>
+                        <th>label</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>15</td><td>+</td><td>Years Experience</td></tr>
+                    <tr><td>500</td><td>+</td><td>Active Members</td></tr>
+                    <tr><td>50</td><td>+</td><td>Expert Trainers</td></tr>
+                    <tr><td>20</td><td>+</td><td>Awards Won</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>3️⃣ About Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>About</code><br>
+            <strong>Purpose:</strong> About section content
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>subtitle</th>
+                        <th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>About Red Dragon Gym</td>
+                        <td>Dhanbad's Oldest & Most Trusted Fitness Center</td>
+                        <td>Since 2009, we've been transforming lives through fitness...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4️⃣ Trainers Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Trainers</code><br>
+            <strong>Purpose:</strong> List of gym trainers with their details
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>specialty</th>
+                        <th>bio</th>
+                        <th>image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Strength Training Expert</td>
+                        <td>10+ years of experience in building champions</td>
+                        <td>https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Yoga & Flexibility Coach</td>
+                        <td>Certified yoga instructor specializing in flexibility</td>
+                        <td>https://images.unsplash.com/photo-1544005313-94ddf0286df2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>5️⃣ Facilities Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Facilities</code><br>
+            <strong>Purpose:</strong> Gym facilities and amenities
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>icon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modern Equipment</td>
+                        <td>State-of-the-art fitness machines and free weights</td>
+                        <td>fas fa-dumbbell</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Training</td>
+                        <td>One-on-one sessions with expert trainers</td>
+                        <td>fas fa-user-check</td>
+                    </tr>
+                    <tr>
+                        <td>Group Classes</td>
+                        <td>Zumba, yoga, spinning, and more</td>
+                        <td>fas fa-users</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Icons:</strong> Use Font Awesome class names from <a href="https://fontawesome.com/icons" target="_blank" style="color: #60a5fa;">fontawesome.com/icons</a></p>
+
+        <h2>6️⃣ Services Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Services</code><br>
+            <strong>Purpose:</strong> Services offered by the gym
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>icon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Weight Training</td>
+                        <td>Build muscle and strength with our expert guidance</td>
+                        <td>fas fa-dumbbell</td>
+                    </tr>
+                    <tr>
+                        <td>Cardio Fitness</td>
+                        <td>Improve cardiovascular health and endurance</td>
+                        <td>fas fa-heart-pulse</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>7️⃣ Pricing Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Pricing</code><br>
+            <strong>Purpose:</strong> Membership plans and pricing
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>price</th>
+                        <th>period</th>
+                        <th>featured</th>
+                        <th>features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic</td>
+                        <td>499</td>
+                        <td>month</td>
+                        <td>FALSE</td>
+                        <td>Gym access|Locker facility|Group classes|Free WiFi</td>
+                    </tr>
+                    <tr>
+                        <td>Premium</td>
+                        <td>999</td>
+                        <td>month</td>
+                        <td>TRUE</td>
+                        <td>All Basic features|Personal trainer|Nutrition plan|Priority booking|Steam & Sauna</td>
+                    </tr>
+                    <tr>
+                        <td>Elite</td>
+                        <td>1499</td>
+                        <td>month</td>
+                        <td>FALSE</td>
+                        <td>All Premium features|Dietician consultation|Spa access|Guest passes|24/7 access</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Use <code>|</code> (pipe) to separate features</li>
+            <li>Set <code>featured</code> to TRUE for highlighted plan</li>
+            <li>Price should be numbers only (no currency symbol)</li>
+        </ul>
+
+        <h2>8️⃣ Testimonials Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Testimonials</code><br>
+            <strong>Purpose:</strong> Member testimonials and reviews
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>role</th>
+                        <th>text</th>
+                        <th>avatar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mike Johnson</td>
+                        <td>Member Since 2020</td>
+                        <td>This gym changed my life! The trainers are amazing and the facilities are top-notch.</td>
+                        <td>https://images.unsplash.com/photo-1500648767791-00dcc994a43e</td>
+                    </tr>
+                    <tr>
+                        <td>Sarah Williams</td>
+                        <td>Member Since 2021</td>
+                        <td>Best investment in my health. Lost 20kg in 6 months with their guidance!</td>
+                        <td>https://images.unsplash.com/photo-1494790108377-be9c29b29330</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>9️⃣ Gallery Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Gallery</code><br>
+            <strong>Purpose:</strong> Photo gallery of gym facilities
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>image</th>
+                        <th>caption</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>https://images.unsplash.com/photo-1534438327276-14e5300c3a48</td>
+                        <td>State-of-the-art Equipment</td>
+                    </tr>
+                    <tr>
+                        <td>https://images.unsplash.com/photo-1571902943202-507ec2618e8f</td>
+                        <td>Spacious Workout Area</td>
+                    </tr>
+                    <tr>
+                        <td>https://images.unsplash.com/photo-1540497077202-7c8a3999166f</td>
+                        <td>Cardio Zone</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>🔟 Contact Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Contact</code><br>
+            <strong>Purpose:</strong> Contact information and map
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>phone</th>
+                        <th>email</th>
+                        <th>address</th>
+                        <th>mapUrl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+91 9876543210</td>
+                        <td>info@redragon.gym</td>
+                        <td>Saraidhela, Dhanbad, Jharkhand - 828127</td>
+                        <td>https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Map URL:</strong> Get embed URL from Google Maps → Share → Embed a map</p>
+
+        <h2>1️⃣1️⃣ Footer Tab</h2>
+        <div class="note">
+            <strong>Tab Name:</strong> <code>Footer</code><br>
+            <strong>Purpose:</strong> Footer text and social media links
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>copyrightText</th>
+                        <th>facebook</th>
+                        <th>instagram</th>
+                        <th>twitter</th>
+                        <th>youtube</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>© {year} Red Dragon Gym - Saraidhela. All Rights Reserved.</td>
+                        <td>https://facebook.com/redragongymsaraidhela</td>
+                        <td>https://instagram.com/redragongymsaraidhela</td>
+                        <td>https://twitter.com/reddragongymsaraidhela</td>
+                        <td>https://youtube.com/@redragongymsaraidhela</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Note:</strong> <code>{year}</code> will automatically show current year</p>
+
+        <div class="alert" style="margin-top: 3rem;">
+            <h3>🚀 Next Steps</h3>
+            <ol style="margin-left: 2rem; margin-top: 1rem;">
+                <li>Create all 11 tabs in your Google Sheet</li>
+                <li>Copy the column headers exactly as shown</li>
+                <li>Fill in your content</li>
+                <li>Make sheet public (Share → Anyone with link → Viewer)</li>
+                <li>Get Google Sheets API key and add to <code>config.js</code></li>
+                <li>Refresh your website to see the changes!</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit" target="_blank" class="btn">
+                Open Your Google Sheet
+            </a>
+            <a href="https://console.cloud.google.com/" target="_blank" class="btn btn-secondary">
+                Get API Key
+            </a>
+        </div>
+
+        <div style="text-align: center; color: #64748b; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #334155;">
+            <p>Red Dragon Gym - Google Sheets Integration</p>
+            <p style="font-size: 0.875rem;">Last Updated: November 2025</p>
+        </div>
+    </div>
+</body>
+</html>

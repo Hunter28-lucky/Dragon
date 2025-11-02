@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Google Sheets Script - Step by Step</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #fbbf24;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .alert {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 2rem 0;
+            border-left: 5px solid #fbbf24;
+        }
+        .alert h2 {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        .step {
+            background: #0f172a;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            border-left: 5px solid #10b981;
+        }
+        .step-number {
+            display: inline-block;
+            background: #10b981;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        .step h3 {
+            color: #10b981;
+            display: inline;
+            font-size: 1.3rem;
+        }
+        .step-content {
+            margin-top: 1rem;
+            margin-left: 3.5rem;
+        }
+        .code-box {
+            background: #000;
+            color: #00ff00;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border: 2px solid #334155;
+        }
+        .screenshot {
+            background: #334155;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            text-align: center;
+            color: #94a3b8;
+            font-style: italic;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-green {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        .note {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #3b82f6;
+            margin: 1rem 0;
+        }
+        .success {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #10b981;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .success h2 {
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        .highlight {
+            background: #fbbf24;
+            color: #000;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Install Google Sheets Script</h1>
+        <p class="subtitle">Make your website content editable from Google Sheets in 5 minutes!</p>
+
+        <div class="alert">
+            <h2>⚡ What This Does</h2>
+            <p>This script adds a custom menu to your Google Sheet that lets you:</p>
+            <ul>
+                <li>✅ Auto-create all 11 required tabs</li>
+                <li>✅ Fill with sample data in one click</li>
+                <li>✅ Validate your content for errors</li>
+                <li>✅ Get help directly in Google Sheets</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <h3>Open Your Google Sheet</h3>
+            <div class="step-content">
+                <p>Go to your Google Sheet:</p>
+                <div class="code-box">
+https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit
+                </div>
+                <a href="https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit" target="_blank" class="btn">Open Google Sheet</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <h3>Open Apps Script Editor</h3>
+            <div class="step-content">
+                <p>In your Google Sheet, click:</p>
+                <div class="note">
+                    <strong>Extensions</strong> → <strong>Apps Script</strong>
+                </div>
+                <div class="screenshot">
+                    📱 A new tab will open with the Apps Script editor
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <h3>Delete Existing Code</h3>
+            <div class="step-content">
+                <p>You'll see some default code like:</p>
+                <div class="code-box">
+function myFunction() {<br>
+&nbsp;&nbsp;// code here<br>
+}
+                </div>
+                <p><strong>Select ALL the code</strong> (Ctrl+A or Cmd+A) and <strong>DELETE it</strong>.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <h3>Copy the Script Code</h3>
+            <div class="step-content">
+                <p>Open the file: <span class="highlight">GOOGLE-SHEETS-SCRIPT.js</span></p>
+                <p>It's in your project folder at:</p>
+                <div class="code-box">
+/Users/krishyogi/Desktop/Dragon/GOOGLE-SHEETS-SCRIPT.js
+                </div>
+                <p><strong>Copy ALL the code</strong> from that file (Ctrl+A, Ctrl+C or Cmd+A, Cmd+C)</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <h3>Paste the Code</h3>
+            <div class="step-content">
+                <p><strong>Paste the code</strong> into the Apps Script editor (Ctrl+V or Cmd+V)</p>
+                <p>You should see code starting with:</p>
+                <div class="code-box">
+/**<br>
+&nbsp;* RED DRAGON GYM - GOOGLE SHEETS APPS SCRIPT<br>
+&nbsp;* ...<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">6</span>
+            <h3>Save the Script</h3>
+            <div class="step-content">
+                <p>Click the <strong>💾 Save</strong> icon (or press Ctrl+S / Cmd+S)</p>
+                <div class="note">
+                    <strong>💡 Tip:</strong> You might be asked to name your project. Name it "Red Dragon Gym Website Tools" or anything you like.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">7</span>
+            <h3>Close Apps Script Tab</h3>
+            <div class="step-content">
+                <p>Close the Apps Script tab and <strong>go back to your Google Sheet</strong></p>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">8</span>
+            <h3>Refresh Your Google Sheet</h3>
+            <div class="step-content">
+                <p><strong>Refresh the page</strong> (F5 or Ctrl+R / Cmd+R)</p>
+                <div class="note">
+                    <strong>⏳ Wait a few seconds</strong> for the sheet to reload completely
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">9</span>
+            <h3>Look for the New Menu</h3>
+            <div class="step-content">
+                <p>At the top of your Google Sheet, you should now see a new menu:</p>
+                <div class="screenshot" style="font-size: 1.5rem; font-style: normal; background: #10b981; color: #000;">
+                    🔥 Website Tools
+                </div>
+                <p style="margin-top: 1rem;"><strong>Click on it!</strong> You'll see options like:</p>
+                <ul>
+                    <li>📋 Create All Tabs</li>
+                    <li>✅ Validate Content</li>
+                    <li>🔄 Refresh Sample Data</li>
+                    <li>📖 Show Help</li>
+                    <li>🌐 Open Website</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">10</span>
+            <h3>Create All Tabs</h3>
+            <div class="step-content">
+                <p>Click: <span class="highlight">🔥 Website Tools → 📋 Create All Tabs</span></p>
+                <p>This will automatically create all 11 required tabs with proper headers!</p>
+                <div class="note">
+                    <strong>First Time?</strong> Google might ask for permissions. Click "Continue" and "Allow" to grant access.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">11</span>
+            <h3>Add Sample Data</h3>
+            <div class="step-content">
+                <p>Click: <span class="highlight">🔥 Website Tools → 🔄 Refresh Sample Data</span></p>
+                <p>This fills all tabs with example content so you can see how it works!</p>
+                <p style="margin-top: 1rem;"><strong>Now you can edit any cell to customize for your gym!</strong></p>
+            </div>
+        </div>
+
+        <div class="success">
+            <h2>🎉 Installation Complete!</h2>
+            <p>Your Google Sheet is now set up! Here's what you can do:</p>
+            <ul style="text-align: left; display: inline-block; margin-top: 1rem;">
+                <li><strong>Edit any cell</strong> to change website content</li>
+                <li><strong>Add/delete rows</strong> to add/remove items</li>
+                <li><strong>Use the menu</strong> to validate content</li>
+                <li><strong>Refresh your website</strong> to see changes!</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <h2>📝 Important Reminders</h2>
+            <ul>
+                <li><strong>Tab Names:</strong> Don't rename the tabs (Hero, Stats, etc.) - they must match exactly!</li>
+                <li><strong>Headers:</strong> Don't delete or rename column headers (title, subtitle, etc.)</li>
+                <li><strong>Data Format:</strong> Use | (pipe) to separate features in pricing</li>
+                <li><strong>Icons:</strong> Get Font Awesome icon names from fontawesome.com</li>
+                <li><strong>Images:</strong> Use direct image URLs (ending in .jpg, .png, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">🔧 Next Steps</h3>
+            <ol>
+                <li>Edit the sample data to match your gym</li>
+                <li>Make sure your sheet is <strong>public</strong> (Share → Anyone with link → Viewer)</li>
+                <li>Add your <strong>API key</strong> to <code>config.js</code></li>
+                <li>Open <code>index.html</code> in your browser</li>
+                <li>Watch your content load from Google Sheets! ✨</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #334155;">
+            <a href="https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit" target="_blank" class="btn btn-green">Open Google Sheet</a>
+            <a href="https://console.cloud.google.com/" target="_blank" class="btn">Get API Key</a>
+        </div>
+
+        <div style="text-align: center; color: #64748b; margin-top: 2rem;">
+            <p>Red Dragon Gym - Google Sheets Integration</p>
+            <p style="font-size: 0.875rem;">Last Updated: November 2025</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Test Live Updates</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #fbbf24;
+        }
+        .test-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(251,191,36,0.3);
+        }
+        .test-box h2 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .btn {
+            background: #fbbf24;
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            background: rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .warning { color: #fbbf24; }
+        .info { color: #3b82f6; }
+        .instruction {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .checklist {
+            margin: 1rem 0;
+        }
+        .checklist li {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Test Google Sheets Live Updates</h1>
+
+        <div class="test-box">
+            <h2>📋 Common Issues Checklist</h2>
+            <ul class="checklist">
+                <li>❓ Did you click <strong>"🔥 Website Tools → 📋 Create Tabs"</strong> in Google Sheets?</li>
+                <li>❓ Did you click <strong>"🔥 Website Tools → Refresh Sample Data"</strong>?</li>
+                <li>❓ Are you editing the correct Google Sheet? (ID: 1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE)</li>
+                <li>❓ Did you do a <strong>hard refresh</strong>? (Cmd+Shift+R on Mac, Ctrl+Shift+F5 on Windows)</li>
+                <li>❓ Are you looking at the correct tab name? (Hero, Stats, Trainers, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="test-box">
+            <h2>🧪 Test 1: Check Current Data</h2>
+            <p>Click to see what data your website is currently receiving from Google Sheets:</p>
+            <button class="btn" onclick="testCurrentData()">📊 Fetch Current Data</button>
+            <div id="currentDataResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-box">
+            <h2>🧪 Test 2: Check Cache</h2>
+            <p>Your browser might be caching old data. Let's check:</p>
+            <button class="btn" onclick="testCache()">🔍 Check Cache</button>
+            <button class="btn" onclick="clearCacheAndReload()">🗑️ Clear Cache & Reload</button>
+            <div id="cacheResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-box">
+            <h2>🧪 Test 3: Fetch with Cache Buster</h2>
+            <p>This bypasses all caching to get fresh data:</p>
+            <button class="btn" onclick="testWithCacheBuster()">⚡ Force Fresh Data</button>
+            <div id="cacheBusterResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-box">
+            <h2>📝 Instructions: How to See Changes</h2>
+            <div class="instruction">
+                <strong>Step 1:</strong> Open your Google Sheet<br>
+                <a href="https://docs.google.com/spreadsheets/d/1WqKMKlCnva4WoXKrpf5ZS89B5Vpu9dpRCEIIBrScwOE/edit" target="_blank" style="color: #fbbf24;">Click here to open your sheet</a>
+            </div>
+            <div class="instruction">
+                <strong>Step 2:</strong> Make sure tabs exist<br>
+                Click <strong>"🔥 Website Tools → 📋 Create Tabs"</strong> if you haven't already
+            </div>
+            <div class="instruction">
+                <strong>Step 3:</strong> Make a test change<br>
+                Go to the <strong>"Hero"</strong> tab and change the title in cell B2
+            </div>
+            <div class="instruction">
+                <strong>Step 4:</strong> Hard refresh your website<br>
+                Press <strong>Cmd+Shift+R</strong> (Mac) or <strong>Ctrl+Shift+F5</strong> (Windows)
+            </div>
+            <div class="instruction">
+                <strong>Step 5:</strong> Check if it worked<br>
+                Look for your changed title on index.html
+            </div>
+        </div>
+
+        <div class="test-box">
+            <h2>🆘 Still Not Working?</h2>
+            <button class="btn" onclick="runFullDiagnostic()">🔧 Run Full Diagnostic</button>
+            <div id="diagnosticResult" class="result" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        const WEB_APP_URL = CONFIG.WEB_APP_URL;
+
+        async function testCurrentData() {
+            const result = document.getElementById('currentDataResult');
+            result.style.display = 'block';
+            result.innerHTML = '<span class="info">⏳ Fetching current data...</span>';
+
+            try {
+                const response = await fetch(`${WEB_APP_URL}?sheet=Hero`);
+                const data = await response.json();
+                
+                result.innerHTML = `
+                    <span class="success">✅ SUCCESS!</span><br><br>
+                    <strong>Current Hero Data:</strong><br>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                    <br>
+                    <span class="warning">⚠️ If you just made changes and don't see them above, try:</span><br>
+                    1. Wait 10-20 seconds (Google takes time to process)<br>
+                    2. Hard refresh (Cmd+Shift+R)<br>
+                    3. Click "Force Fresh Data" button above
+                `;
+            } catch (error) {
+                result.innerHTML = `<span class="error">❌ ERROR: ${error.message}</span>`;
+            }
+        }
+
+        async function testCache() {
+            const result = document.getElementById('cacheResult');
+            result.style.display = 'block';
+            
+            const cacheInfo = {
+                'Browser': navigator.userAgent.split(' ').pop(),
+                'Timestamp': new Date().toLocaleString(),
+                'Cache-Control': 'Checking...'
+            };
+
+            result.innerHTML = `
+                <span class="info">📋 Cache Information:</span><br>
+                <pre>${JSON.stringify(cacheInfo, null, 2)}</pre>
+                <br>
+                <span class="warning">⚠️ To see changes, always do a HARD REFRESH:</span><br>
+                • Mac: <strong>Cmd + Shift + R</strong><br>
+                • Windows: <strong>Ctrl + Shift + F5</strong><br>
+                • Or click "Clear Cache & Reload" button
+            `;
+        }
+
+        function clearCacheAndReload() {
+            // Clear all caches
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => caches.delete(name));
+                });
+            }
+            
+            // Reload with cache bypass
+            location.reload(true);
+        }
+
+        async function testWithCacheBuster() {
+            const result = document.getElementById('cacheBusterResult');
+            result.style.display = 'block';
+            result.innerHTML = '<span class="info">⚡ Fetching fresh data (bypassing cache)...</span>';
+
+            try {
+                // Add timestamp to bypass cache
+                const timestamp = new Date().getTime();
+                const response = await fetch(`${WEB_APP_URL}?sheet=Hero&t=${timestamp}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                const data = await response.json();
+                
+                result.innerHTML = `
+                    <span class="success">✅ FRESH DATA RECEIVED!</span><br><br>
+                    <strong>Latest Hero Data (bypassing cache):</strong><br>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                    <br>
+                    <span class="success">✅ This is the CURRENT data in your Google Sheet!</span><br>
+                    <span class="warning">If you still don't see your changes, check:</span><br>
+                    1. Are you editing the correct sheet tab?<br>
+                    2. Did you click "🔥 Website Tools → Refresh Sample Data"?<br>
+                    3. Is your edit in the correct column?
+                `;
+            } catch (error) {
+                result.innerHTML = `<span class="error">❌ ERROR: ${error.message}</span>`;
+            }
+        }
+
+        async function runFullDiagnostic() {
+            const result = document.getElementById('diagnosticResult');
+            result.style.display = 'block';
+            result.innerHTML = '<span class="info">🔧 Running full diagnostic...</span><br><br>';
+
+            const tests = [];
+
+            // Test 1: Check Web App URL
+            tests.push(`<span class="info">1️⃣ Checking Web App URL...</span>`);
+            tests.push(`URL: ${WEB_APP_URL}`);
+            tests.push(`<span class="success">✅ URL is configured</span><br>`);
+
+            // Test 2: Check deployment
+            tests.push(`<span class="info">2️⃣ Testing deployment...</span>`);
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`${WEB_APP_URL}?sheet=Hero&t=${timestamp}`, {
+                    cache: 'no-store'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    tests.push(`<span class="success">✅ Deployment is working!</span>`);
+                    tests.push(`Received ${data.length} rows of data`);
+                    if (data.length > 0) {
+                        tests.push(`First row: ${JSON.stringify(data[0])}`);
+                    }
+                } else {
+                    tests.push(`<span class="error">❌ Deployment returned error: ${response.status}</span>`);
+                }
+            } catch (error) {
+                tests.push(`<span class="error">❌ Cannot reach deployment: ${error.message}</span>`);
+            }
+            tests.push(`<br>`);
+
+            // Test 3: Check all sheets
+            tests.push(`<span class="info">3️⃣ Checking all sheet tabs...</span>`);
+            const sheets = ['Hero', 'Stats', 'About', 'Trainers', 'Facilities', 'Services', 'Pricing', 'Testimonials', 'Gallery', 'Contact', 'Footer'];
+            for (const sheet of sheets) {
+                try {
+                    const timestamp = new Date().getTime();
+                    const response = await fetch(`${WEB_APP_URL}?sheet=${sheet}&t=${timestamp}`, {
+                        cache: 'no-store'
+                    });
+                    const data = await response.json();
+                    if (data.length > 0) {
+                        tests.push(`<span class="success">✅ ${sheet}: ${data.length} rows</span>`);
+                    } else {
+                        tests.push(`<span class="warning">⚠️ ${sheet}: Empty or not found</span>`);
+                    }
+                } catch (error) {
+                    tests.push(`<span class="error">❌ ${sheet}: Error - ${error.message}</span>`);
+                }
+            }
+            tests.push(`<br>`);
+
+            // Test 4: Recommendations
+            tests.push(`<span class="info">4️⃣ Recommendations:</span>`);
+            tests.push(`<span class="warning">📌 To see changes on your website:</span>`);
+            tests.push(`1. Edit your Google Sheet`);
+            tests.push(`2. Wait 10-20 seconds`);
+            tests.push(`3. Do HARD REFRESH on index.html (Cmd+Shift+R)`);
+            tests.push(`4. Changes should appear!`);
+            tests.push(`<br>`);
+            tests.push(`<span class="warning">📌 If changes still don't show:</span>`);
+            tests.push(`1. Make sure you clicked "🔥 Website Tools → 📋 Create Tabs"`);
+            tests.push(`2. Make sure you clicked "🔥 Website Tools → Refresh Sample Data"`);
+            tests.push(`3. Check that you're editing the correct column (Column B for most values)`);
+            tests.push(`4. Check browser console (F12) for errors`);
+
+            result.innerHTML = tests.join('<br>');
+        }
+
+        // Auto-run first test on load
+        window.addEventListener('load', () => {
+            setTimeout(testCurrentData, 1000);
+        });
+    </script>
+</body>
+</html>

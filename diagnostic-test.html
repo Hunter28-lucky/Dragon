@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Connection Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { color: #fbbf24; margin-bottom: 1rem; }
+        .url-box {
+            background: #0f172a;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            word-break: break-all;
+        }
+        .status {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+        .loading { background: #3b82f6; color: white; }
+        .success { background: #10b981; color: white; }
+        .error { background: #ef4444; color: white; }
+        pre {
+            background: #000;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+        button {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+        button:hover { opacity: 0.9; }
+        .step {
+            background: #0f172a;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            border-left: 4px solid #10b981;
+        }
+        .step h3 { color: #10b981; margin-bottom: 0.5rem; }
+        .note {
+            background: rgba(251, 191, 36, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #fbbf24;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Detailed Connection Diagnostic</h1>
+        
+        <div class="step">
+            <h3>Your Deployment Info:</h3>
+            <div class="url-box">
+                <strong>Deployment ID:</strong><br>
+                AKfycbwqlyanl-_xuMFlvlEcUP5mR0XBNHfEwlA2xU8g-XO9PB2Y0SJmRKGj_WUQjU4Eb7WO
+            </div>
+            <div class="url-box">
+                <strong>Web App URL:</strong><br>
+                https://script.google.com/macros/s/AKfycbwqlyanl-_xuMFlvlEcUP5mR0XBNHfEwlA2xU8g-XO9PB2Y0SJmRKGj_WUQjU4Eb7WO/exec
+            </div>
+            <div class="url-box">
+                <strong>Library URL:</strong><br>
+                https://script.google.com/macros/library/d/10TWwgPHCFYMyUyth9QtAOnxfBKQmLFt96837dGaqb9iwXLV7ACkFBtbk/3
+            </div>
+        </div>
+
+        <button onclick="testDirect()">🔬 Test Direct URL</button>
+        <button onclick="testWithFetch()">📡 Test with Fetch API</button>
+        <button onclick="testAllSheets()">📊 Test All Sheets</button>
+
+        <div id="status" class="status loading">
+            ⏳ Click a button to test...
+        </div>
+
+        <div id="logs"></div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwqlyanl-_xuMFlvlEcUP5mR0XBNHfEwlA2xU8g-XO9PB2Y0SJmRKGj_WUQjU4Eb7WO/exec';
+        
+        function log(message, type = 'info') {
+            const logsEl = document.getElementById('logs');
+            const timestamp = new Date().toLocaleTimeString();
+            const colors = {
+                info: '#3b82f6',
+                success: '#10b981',
+                error: '#ef4444',
+                warning: '#f59e0b'
+            };
+            
+            logsEl.innerHTML += `
+                <div style="background: #0f172a; padding: 0.75rem; margin: 0.5rem 0; border-radius: 0.5rem; border-left: 4px solid ${colors[type]}">
+                    <strong style="color: ${colors[type]}">[${timestamp}]</strong> ${message}
+                </div>
+            `;
+            logsEl.scrollTop = logsEl.scrollHeight;
+        }
+
+        async function testDirect() {
+            const statusEl = document.getElementById('status');
+            document.getElementById('logs').innerHTML = '';
+            
+            statusEl.className = 'status loading';
+            statusEl.textContent = '⏳ Testing direct URL access...';
+            
+            const testUrl = `${WEB_APP_URL}?sheet=Hero`;
+            log(`Testing URL: ${testUrl}`, 'info');
+            
+            try {
+                log('Opening URL in new tab...', 'info');
+                window.open(testUrl, '_blank');
+                
+                statusEl.className = 'status success';
+                statusEl.innerHTML = `
+                    ✅ Opening URL in new tab...<br>
+                    <small>Check the new tab for the response. You should see JSON data.</small>
+                `;
+                
+                log('If you see JSON data in the new tab, the Web App is working!', 'success');
+                log('If you see an error or blank page, check deployment settings.', 'warning');
+                
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.textContent = `❌ Error: ${error.message}`;
+                log(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testWithFetch() {
+            const statusEl = document.getElementById('status');
+            document.getElementById('logs').innerHTML = '';
+            
+            statusEl.className = 'status loading';
+            statusEl.textContent = '⏳ Testing with Fetch API...';
+            
+            const testUrl = `${WEB_APP_URL}?sheet=Hero`;
+            log(`Fetching: ${testUrl}`, 'info');
+            
+            try {
+                log('Sending request...', 'info');
+                
+                const response = await fetch(testUrl, {
+                    method: 'GET',
+                    redirect: 'follow'
+                });
+                
+                log(`Response status: ${response.status} ${response.statusText}`, response.ok ? 'success' : 'error');
+                log(`Response headers: ${JSON.stringify([...response.headers])}`, 'info');
+                
+                const text = await response.text();
+                log(`Response body length: ${text.length} characters`, 'info');
+                
+                let data;
+                try {
+                    data = JSON.parse(text);
+                    log('Response is valid JSON ✓', 'success');
+                } catch (e) {
+                    log('Response is NOT JSON. Raw text:', 'warning');
+                    log(`<pre>${text.substring(0, 500)}</pre>`, 'warning');
+                    throw new Error('Response is not JSON');
+                }
+                
+                if (data.success) {
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = `
+                        ✅ Connection successful!<br>
+                        <small>Loaded ${data.data.length} rows from ${data.sheet} sheet</small>
+                    `;
+                    log(`Success! Loaded ${data.data.length} rows`, 'success');
+                    log(`Data preview: <pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else if (data.error) {
+                    throw new Error(data.error);
+                } else {
+                    log(`Unexpected response: <pre>${JSON.stringify(data, null, 2)}</pre>`, 'warning');
+                }
+                
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `
+                    ❌ Connection failed: ${error.message}<br><br>
+                    <strong>Common fixes:</strong><br>
+                    1. Redeploy Web App with "Anyone" access<br>
+                    2. Make sure doGet() function exists in script<br>
+                    3. Check if Hero sheet has data<br>
+                    4. Try opening the URL directly (button above)
+                `;
+                log(`Error: ${error.message}`, 'error');
+                log(`Stack: ${error.stack}`, 'error');
+            }
+        }
+
+        async function testAllSheets() {
+            const statusEl = document.getElementById('status');
+            document.getElementById('logs').innerHTML = '';
+            
+            statusEl.className = 'status loading';
+            statusEl.textContent = '⏳ Testing all sheets...';
+            
+            const sheets = ['Hero', 'Stats', 'About', 'Trainers', 'Facilities', 'Services', 'Pricing', 'Testimonials', 'Gallery', 'Contact', 'Footer'];
+            const results = {};
+            
+            log('Testing all 11 sheets...', 'info');
+            
+            for (const sheet of sheets) {
+                try {
+                    const url = `${WEB_APP_URL}?sheet=${sheet}`;
+                    log(`Testing ${sheet}...`, 'info');
+                    
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        results[sheet] = `✅ ${data.data.length} rows`;
+                        log(`${sheet}: ${data.data.length} rows`, 'success');
+                    } else {
+                        results[sheet] = `❌ ${data.error || 'Error'}`;
+                        log(`${sheet}: ${data.error || 'Error'}`, 'error');
+                    }
+                } catch (error) {
+                    results[sheet] = `❌ ${error.message}`;
+                    log(`${sheet}: ${error.message}`, 'error');
+                }
+            }
+            
+            let html = '<pre>';
+            for (const [sheet, status] of Object.entries(results)) {
+                html += `${sheet.padEnd(15)} : ${status}\n`;
+            }
+            html += '</pre>';
+            
+            log(`Results summary: ${html}`, 'info');
+            
+            const successCount = Object.values(results).filter(r => r.startsWith('✅')).length;
+            
+            if (successCount === sheets.length) {
+                statusEl.className = 'status success';
+                statusEl.innerHTML = `✅ All ${sheets.length} sheets working perfectly!`;
+            } else if (successCount > 0) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `⚠️ ${successCount}/${sheets.length} sheets working. Check logs for details.`;
+            } else {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `❌ No sheets responding. Check deployment settings.`;
+            }
+        }
+
+        // Auto test on load
+        log('🔥 Red Dragon Gym - Connection Diagnostic Ready', 'success');
+        log('Click a button above to test your Google Sheets connection', 'info');
+    </script>
+</body>
+</html>
