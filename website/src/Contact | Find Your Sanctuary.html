@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RED DRAGON - Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed": "#ffdad4",
+                      "outline": "#b18780",
+                      "on-error-container": "#ffdad6",
+                      "surface-dim": "#131313",
+                      "primary-fixed": "#ffdad4",
+                      "on-primary": "#690100",
+                      "secondary": "#ffb4a8",
+                      "on-surface-variant": "#ebbbb4",
+                      "outline-variant": "#603e39",
+                      "on-primary-fixed-variant": "#930100",
+                      "surface-container-high": "#2a2a2a",
+                      "on-secondary-fixed-variant": "#920703",
+                      "tertiary-container": "#8392a9",
+                      "background": "#131313",
+                      "on-secondary": "#690000",
+                      "surface-container-highest": "#353534",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed-dim": "#b9c7e0",
+                      "surface-container": "#201f1f",
+                      "secondary-container": "#920703",
+                      "error-container": "#93000a",
+                      "tertiary": "#b9c7e0",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary-fixed": "#0d1c2f",
+                      "on-secondary-container": "#ff9a8a",
+                      "on-tertiary-container": "#1c2a3d",
+                      "inverse-primary": "#c00100",
+                      "on-tertiary": "#233144",
+                      "on-primary-container": "#5c0000",
+                      "surface-bright": "#3a3939",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "primary": "#ffb4a8",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-fixed": "#410000",
+                      "primary-container": "#ff5540",
+                      "on-error": "#690005",
+                      "surface-variant": "#353534",
+                      "secondary-fixed-dim": "#ffb4a8",
+                      "tertiary-fixed": "#d5e3fd",
+                      "surface": "#131313",
+                      "on-tertiary-fixed-variant": "#3a485c",
+                      "on-background": "#e5e2e1",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed": "#410000",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-tint": "#ffb4a8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "margin-desktop": "80px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Sora"
+                      ],
+                      "display-xl": [
+                              "Sora"
+                      ],
+                      "headline-md": [
+                              "Sora"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Sora"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "42px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-xl": [
+                              "84px",
+                              {
+                                      "lineHeight": "90px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-card {
+            background: rgba(42, 42, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .aura-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 85, 64, 0.3), transparent);
+        }
+        .input-hud {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #353534;
+            transition: all 0.3s ease;
+        }
+        .input-hud:focus {
+            outline: none;
+            border-bottom-color: #ff5540;
+            box-shadow: 0 10px 20px -10px rgba(255, 85, 64, 0.1);
+        }
+        
+        .btn-ignite {
+            background-color: #0A0A0A;
+            border: 2px solid #ff0000;
+            transition: all 0.3s ease;
+        }
+        .btn-ignite:hover {
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.2);
+            letter-spacing: 0.05em;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-low/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-outline-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary italic">RED DRAGON</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">ROSTER</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">PROGRAMS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">THE LAB</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">MEMBERSHIP</a>
+</div>
+<div class="flex items-center gap-6">
+<a class="hidden md:block btn-ignite px-6 py-2 font-headline-md text-label-sm text-on-surface tracking-widest uppercase" href="#">JOIN THE ELITE</a>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-16 md:mb-24 text-center md:text-left">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-primary-container/20 px-3 py-1 rounded-DEFAULT border border-primary/30 inline-block mb-4">SECURE YOUR SPOT</span>
+<h1 class="font-display-xl text-headline-lg-mobile md:text-display-xl text-on-surface uppercase mb-6">INITIATE CONTACT</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">The elite don't wait. Secure your session, request a private consultation, or integrate with our high-performance facility.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Form Area (Left) -->
+<div class="lg:col-span-7 space-y-12">
+<div class="glass-card rounded-xl p-8 md:p-12 relative overflow-hidden">
+<!-- Subtle Red Glow -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">SECURE COMMS</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">OPERATIVE NAME</label>
+<input class="input-hud w-full py-3 text-on-surface font-body-lg" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">ENCRYPTED COMM (EMAIL)</label>
+<input class="input-hud w-full py-3 text-on-surface font-body-lg" placeholder="john@elite.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">OBJECTIVE</label>
+<select class="input-hud w-full py-3 text-on-surface font-body-lg bg-transparent appearance-none">
+<option class="bg-surface-container text-on-surface">Private Coaching Inquiry</option>
+<option class="bg-surface-container text-on-surface">Facility Access &amp; Membership</option>
+<option class="bg-surface-container text-on-surface">Performance Lab Assessment</option>
+<option class="bg-surface-container text-on-surface">General Support</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">TRANSMISSION</label>
+<textarea class="input-hud w-full py-3 text-on-surface font-body-lg resize-none h-32" placeholder="Detail your performance requirements..."></textarea>
+</div>
+<button class="btn-ignite w-full py-4 flex items-center justify-center gap-3 mt-8" type="button">
+<span class="font-headline-md text-body-lg text-on-surface uppercase tracking-widest">TRANSMIT DATA</span>
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- FAQ Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="glass-card rounded-xl p-6 hover:bg-surface-container-high/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">ACCESS PROTOCOL</h3>
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Strictly appointment only. Walk-ins are not permitted. Ensure clearance before arrival.</p>
+</div>
+<div class="glass-card rounded-xl p-6 hover:bg-surface-container-high/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-body-lg text-on-surface group-hover:text-primary transition-colors">GEAR REQUIREMENTS</h3>
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Matte black or subdued athletic wear. Towels and hydration are provided in the Lab.</p>
+</div>
+</div>
+</div>
+<!-- Side Info (Right) -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Map Embed -->
+<div class="glass-card rounded-xl overflow-hidden h-[300px] relative">
+<!-- Map placeholder styled dark -->
+<div class="absolute inset-0 bg-surface-container-highest flex items-center justify-center grayscale contrast-125 opacity-80" data-alt="A stylized, high-contrast satellite view of an urban grid at night. The city layout is geometric and complex, rendered in deep monochromatic tones of charcoal and slate. Very subtle, dim crimson accents highlight key intersections, aligning with a cyberpunk, high-tech aesthetic. The overall mood is cold, tactical, and surveillance-like." data-location="Los Angeles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-i-WY0WRxY5qZTGU61VALRgd2asC12eGRgCxfAfMyl3rfBXLTgfCnHFqixxxS3YbCMHfpLpYU6CtKLbxM2b3ebx7P77ir2i4lc4UuQG2pYpmQSRa17bj_-WlpS0POhyWLNmO3NWN9agxH4Z8OcWfG3A0JUhDB3OF-mPgCy6sRdKIUNwN3pe-gUxUowVmKRQmHaa2BPwLaU6FiQiMslzYl5iGoq3-dUgrF5ELjsoZc6qjI8vv-oUk2xb0OCV3tMT2WXzllhI6wp4A'); background-size: cover; background-position: center;">
+<div class="bg-primary/20 p-4 rounded-full border border-primary/50 animate-pulse">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="glass-card rounded-xl p-8">
+<h3 class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6">THE LAB COORDINATES</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1">my_location</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Sector 7G, Industrial District</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Neo-Tokyo, NT 90210</p>
+</div>
+</div>
+<div class="aura-divider"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1">schedule</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Operational Hours</p>
+<p class="font-body-md text-body-md text-on-surface-variant">0400 - 2300 (Daily)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- WhatsApp Integration -->
+<div class="bg-surface-container-high rounded-xl p-6 border border-outline-variant/30 flex items-center justify-between hover:border-primary/50 transition-colors cursor-pointer group">
+<div>
+<h4 class="font-headline-md text-body-lg text-on-surface mb-1">DIRECT LINE</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Encrypted WhatsApp Comms</p>
+</div>
+<div class="bg-surface-container-highest p-3 rounded-full group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface group-hover:text-primary" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-12 px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-on-surface">RED DRAGON</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVACY</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">TERMS</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SAFETY</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SUPPORT</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+                © 2024 RED DRAGON PERFORMANCE. ENGINEERED FOR THE 1%.
+            </div>
+</div>
+</footer>
+</body></html>

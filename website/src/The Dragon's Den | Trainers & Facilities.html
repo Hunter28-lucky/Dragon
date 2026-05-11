@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RED DRAGON | The Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-sm {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+        .aura-divider {
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 180, 168, 0.5) 50%, transparent 100%);
+            height: 1px;
+            width: 100%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed": "#ffdad4",
+                      "outline": "#b18780",
+                      "on-error-container": "#ffdad6",
+                      "surface-dim": "#131313",
+                      "primary-fixed": "#ffdad4",
+                      "on-primary": "#690100",
+                      "secondary": "#ffb4a8",
+                      "on-surface-variant": "#ebbbb4",
+                      "outline-variant": "#603e39",
+                      "on-primary-fixed-variant": "#930100",
+                      "surface-container-high": "#2a2a2a",
+                      "on-secondary-fixed-variant": "#920703",
+                      "tertiary-container": "#8392a9",
+                      "background": "#131313",
+                      "on-secondary": "#690000",
+                      "surface-container-highest": "#353534",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed-dim": "#b9c7e0",
+                      "surface-container": "#201f1f",
+                      "secondary-container": "#920703",
+                      "error-container": "#93000a",
+                      "tertiary": "#b9c7e0",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary-fixed": "#0d1c2f",
+                      "on-secondary-container": "#ff9a8a",
+                      "on-tertiary-container": "#1c2a3d",
+                      "inverse-primary": "#c00100",
+                      "on-tertiary": "#233144",
+                      "on-primary-container": "#5c0000",
+                      "surface-bright": "#3a3939",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "primary": "#ffb4a8",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-fixed": "#410000",
+                      "primary-container": "#ff5540",
+                      "on-error": "#690005",
+                      "surface-variant": "#353534",
+                      "secondary-fixed-dim": "#ffb4a8",
+                      "tertiary-fixed": "#d5e3fd",
+                      "surface": "#131313",
+                      "on-tertiary-fixed-variant": "#3a485c",
+                      "on-background": "#e5e2e1",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed": "#410000",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-tint": "#ffb4a8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "margin-desktop": "80px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Sora"],
+                      "display-xl": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "label-sm": ["JetBrains Mono"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Sora"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-xl": ["84px", {"lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary italic tracking-tight">RED DRAGON</div>
+<div class="hidden md:flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ROSTER</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PROGRAMS</a>
+<a class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1" href="#">THE LAB</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">MEMBERSHIP</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden md:block bg-surface-container-highest text-primary border-2 border-primary font-label-sm text-label-sm px-6 py-2 rounded uppercase hover:glow-sm hover:scale-[1.02] transition-all duration-300">
+                    JOIN THE ELITE
+                </button>
+<button class="text-primary hover:glow-sm hover:scale-[1.02] transition-all duration-300">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[120px] pb-24">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-32">
+<div class="relative h-[600px] w-full rounded-xl overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-10"></div>
+<img alt="The Lab Facility" class="w-full h-full object-cover opacity-60" data-alt="A cinematic, wide-angle shot of an ultra-modern, elite training facility bathed in deep shadows and neon crimson lighting. Heavy, matte black equipment is perfectly aligned on a dark rubberized floor. The atmosphere is intense, futuristic, and aggressive, embodying a dark luxury cyberpunk aesthetic with subtle red glowing accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdvFBwPPOlMYjvoORrHGIAw3VgHlT0VZ6dQpo8YQQXG-94h7hpv6Ny8MDC_S_c_BssOaNMbt0GVR27kyLpKftznyKoHIxncRsr-jSKhOYdNQKIOliofzX72n7oJfh0cP4wXBSVBEQ_9IeG3UjzYab2G29CWA6ePTxMWxI31AXm5uR8K-mTe_L2pmApktAyHeGn8bCzRyZ31e7cWNKg9E07cMwNRfdI-xGtiLoeed0U1KtrhHVRSPaXZnlUulUweOlhS7cI3K3EAiw"/>
+<div class="absolute bottom-16 left-16 z-20">
+<span class="font-label-sm text-label-sm bg-primary/20 text-primary px-3 py-1 rounded backdrop-blur-md border border-primary/30 mb-4 inline-block">FACILITY 01</span>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-4">THE LAB</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Engineered for the 1%. A high-tech proving ground equipped with biomechanical tracking and brutalist, uncompromising hardware.</p>
+</div>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="aura-divider mb-32"></div>
+</div>
+<!-- The Roster (Bento Grid) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-32">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">ELITE ARCHITECTS</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The minds forging the next generation of apex predators.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[400px]">
+<!-- Trainer 1 - Large -->
+<div class="md:col-span-8 relative rounded-xl overflow-hidden bg-surface-container-high/50 backdrop-blur-[20px] border border-white/10 group cursor-pointer">
+<img alt="Lead Architect" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="A dramatic, low-key portrait of an intensely focused strength coach in a dark, atmospheric gym. Lit by a harsh overhead rim light that accentuates muscle definition and grit, set against an obsidian background. The mood is aggressive and premium, matching a dark luxury high-tech fitness brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBazjlbHZI3GM246ELBxFYSE7-3NyJbITTPUJDcrmb_EBUaI8bhkx8-FXfWOmO76CIxTk7FaUA-sMOmW04hjZo21BJMMeoj5aujvHV0YZWNSq6wHU0dTitzNQapsOMO9SFbriTyAELfMopymcWrAAzCoF98DD62_3rDKIzWT77JlnVEfLyKVxaoi8IHqV_KHXGnIQdH3C1Y10rpxiCHvPKW9s_b73BvmLRutwMWFTU6UTLKauRK1tHciiS9uufadoUQ4Fv7M3ZHI1M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="flex gap-2 mb-4">
+<span class="font-label-sm text-label-sm bg-secondary-container/50 text-secondary border border-secondary/20 px-2 py-1 rounded">HYPERTROPHY</span>
+<span class="font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant border border-outline-variant/30 px-2 py-1 rounded">BIOMECHANICS</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">MARCUS VANE</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Director of Physical Reconstruction. Specializes in brutal, high-yield mass accrual protocols.</p>
+</div>
+</div>
+<!-- Trainer 2 - Tall -->
+<div class="md:col-span-4 relative rounded-xl overflow-hidden bg-surface-container-high/50 backdrop-blur-[20px] border border-white/10 group cursor-pointer">
+<img alt="Speed Architect" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="A fierce, cinematic shot of a female performance specialist mid-movement in a dark, neon-lit training space. The lighting features sharp red accents cutting through deep blacks, emphasizing speed and explosive power. The aesthetic is high-tech, aggressive, and undeniably premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8id11uwcoidPjlTpzaZSMHlJugm4r729JOlw1M0e-33_CtvY5XGpnCySj4HF60OFYF4tPWGJdocH0DAMb1CDeDrLriwyS4S_Ikd_Lv7CAW-gtK_pMA_wUw3pmWfGSpBYPHpshocn-caGbHJOP7xWdyS6o1YtKccYNt0mbipm-2smUPaPwvqjiZeYA-Auff9JXQfoQvjf1noPSOUO-rKuWgRReZh4eRPC8YyvC9dlfe8w2kX7IVPybo5FFHokk2Zo86OkFGkakYZA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="flex gap-2 mb-4">
+<span class="font-label-sm text-label-sm bg-primary-container/30 text-primary-fixed border border-primary/20 px-2 py-1 rounded">KINETICS</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">SARAH JENSEN</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Velocity &amp; Power generation.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-on-surface">RED DRAGON</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVACY</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">TERMS</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SAFETY</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SUPPORT</a>
+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+                © 2024 RED DRAGON PERFORMANCE. ENGINEERED FOR THE 1%.
+            </div>
+</div>
+</footer>
+</body></html>

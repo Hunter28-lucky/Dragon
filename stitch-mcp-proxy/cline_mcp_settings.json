@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "command": "node",
+      "args": [
+        "/Users/krishyogi/Desktop/Dragon/stitch-mcp-proxy/index.js"
+      ],
+      "env": {
+        "STITCH_API_KEY": "AQ.Ab8RN6JFQ1KkTvPC67td3J2UiqZejFZLHC8z_p35Q3JMnl3eTQ"
+      }
+    }
+  }
+}
