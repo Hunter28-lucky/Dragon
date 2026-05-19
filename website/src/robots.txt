@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.reddragongym.fit/sitemap.xml
+Sitemap: https://www.reddragongym.fit/sitemap-gym.xml
