@@ -1,9 +1,9 @@
 const fs = require('fs');
 let html = fs.readFileSync('website/src/index.html', 'utf-8');
 
-// Update Tier 1 (was $199/month -> Monthly Base ₹600)
+// Update Tier 1 (was $199/month -> Monthly Base ₹599)
 html = html.replace('Initiate</h2>', 'Monthly Phase</h2>');
-html = html.replace('<span class="font-headline-lg text-headline-lg text-primary">$199</span>', '<span class="font-headline-lg text-headline-lg text-primary">₹600</span>');
+html = html.replace('<span class="font-headline-lg text-headline-lg text-primary">$199</span>', '<span class="font-headline-lg text-headline-lg text-primary">₹599</span>');
 
 // Update Tier 2 (was $499/month -> Yearly ₹6000)
 html = html.replace('Elite</h2>', 'Yearly Elite</h2>');
